@@ -1,0 +1,27 @@
+{% extends 'zip_to_rep/base.html' %}
+{% block title%}{{zip.zip}}{% endblock %}
+
+{% block body %}
+
+    <h1>
+        Information for: {{zip}}
+    </h1>
+
+
+    <ul>
+        {% for item in zip.district_set.all %}
+        <h3><strong>State: {{item.dist_state}} District: {{item.dist_num}}</strong></h3>
+            <h3><i>Representatives: </i></h3>
+            {% for person in item.rep_set.all %}
+                <ul><h4>{{person}}</h4>
+                    <li>Most recent bill: {{person.recent_bill}}</li>
+                    <li>How voted: {{person.how_voted}}</li>
+                </ul>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+
+

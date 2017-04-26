@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title%}Zip2Rep{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'zip_to_rep/style.css' %}"/>
+    <link rel="stylesheet" type="text/js" href="{% static 'zip_to_rep/static.js' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'zip_to_rep:index' %}">Home</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+                <li class="">
+                    <a class="navbar-brand" href="{% url 'zip_to_rep:zip_add' %}">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp; Add Zipcode
+                    </a>
+                </li>
+                <li class="">
+                    <a class="navbar-brand" href="{% url 'zip_to_rep:index' %}">
+                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>&nbsp; All Zipcodes
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+    </nav>
+    <text>
+    <div class="text-container">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        {% block body %}
+                        Add A Zipcode Below
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </text>
+    {%block form%}
+    {%endblock%}
+</body>
+<footer>
+    <p class="navbar-brand">Posted by: Tessa Haldes    <a href="tessacodes10@gmail.com">Email me!</a></p>
+</footer>
+</html>
